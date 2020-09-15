@@ -28,14 +28,30 @@ namespace OOP01
         public int a;
         public int b;
 
-        public int Kerulet()
+        public int TKerulet()
         {
-            return 2*a+2*b;
+            return 2 * a + 2 * b;
         }
 
-        public int Terulet()
+        public int TTerulet()
         {
-            return a*b;
+            return a * b;
+        }
+    }
+
+    class Kor
+    {
+        public int r;
+        public double pi;
+
+        public double KKerulet()
+        {
+            return 2 * r * Math.PI;
+        }
+
+        public double KTerulet()
+        {
+            return Math.Pow(r,2) * Math.PI;
         }
     }
 
@@ -57,10 +73,19 @@ namespace OOP01
 
             Teglalap t = new Teglalap();
 
+            Console.WriteLine("A téglalap a oldala:");
             t.a = int.Parse(Console.ReadLine());
+            Console.WriteLine("A téglalap b oldala:");
             t.b = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Kerület: {0} Terület: {1}",t.Kerulet(),t.Terulet());
+            Console.WriteLine("Téglalap Kerület: {0} \t Téglalap Terület: {1}",t.TKerulet(),t.TTerulet());
+
+            Kor k = new Kor();
+
+            Console.WriteLine("A kör kerülete:");
+            k.r = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Kör Kerület: {0} \t Kör Terület: {1}",k.KKerulet(),k.KTerulet());
 
             Console.ReadKey();
         }
