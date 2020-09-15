@@ -25,8 +25,14 @@ namespace OOP01
 
     class Teglalap
     {
-        public int a;
-        public int b;
+        private int a;
+        private int b;
+
+        public Teglalap(int aOldal, int bOldal)
+        {
+            a = aOldal;
+            b = bOldal;
+        }
 
         public int TKerulet()
         {
@@ -41,17 +47,32 @@ namespace OOP01
 
     class Kor
     {
-        public int r;
-        public double pi;
+        private int r;
 
-        public double KKerulet()
+        public Kor(int sugar)
+        {
+            if (sugar<1)
+            {
+                r = 1;
+            }
+            else r = sugar;
+        }
+
+        private double KKerulet()
         {
             return 2 * r * Math.PI;
         }
 
-        public double KTerulet()
+        private double KTerulet()
         {
             return Math.Pow(r,2) * Math.PI;
+        }
+
+        public void AdatokKiirasa()
+        {
+            Console.WriteLine("Sugár: {0}", r);
+            Console.WriteLine("Kerület: {0}", KKerulet());
+            Console.WriteLine("Terület: {0}", KTerulet());
         }
     }
 
@@ -71,21 +92,30 @@ namespace OOP01
             Console.WriteLine(pisti.Bemutatkozas());
             Console.WriteLine(eva.Bemutatkozas());
 
-            Teglalap t = new Teglalap();
+            Console.Write("Téglalap a oldala: ");
+            int aOldal = int.Parse(Console.ReadLine());
+            Console.Write("A téglalap b oldala: ");
+            int bOldal = int.Parse(Console.ReadLine());
+            Teglalap t = new Teglalap(aOldal, bOldal);
 
-            Console.WriteLine("A téglalap a oldala:");
-            t.a = int.Parse(Console.ReadLine());
-            Console.WriteLine("A téglalap b oldala:");
-            t.b = int.Parse(Console.ReadLine());
+            //Console.Write("A téglalap a oldala: ");
+            //t.a = int.Parse(Console.ReadLine());
+            //Console.Write("A téglalap b oldala: ");
+            //t.b = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Téglalap Kerület: {0} \t Téglalap Terület: {1}",t.TKerulet(),t.TTerulet());
 
-            Kor k = new Kor();
+            Console.Write("A kör sugara: ");
+            int sugar = int.Parse(Console.ReadLine());
+            Kor k = new Kor(sugar);
 
-            Console.WriteLine("A kör kerülete:");
-            k.r = int.Parse(Console.ReadLine());
+            //Console.WriteLine("A kör sugara:");
+            //k.r = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Kör Kerület: {0} \t Kör Terület: {1}",k.KKerulet(),k.KTerulet());
+            //Console.WriteLine("Kör Kerület: {0} \t Kör Terület: {1}",k.KKerulet(),k.KTerulet());ű
+            
+            Console.WriteLine("Kör adatai:");
+            k.AdatokKiirasa();
 
             Console.ReadKey();
         }
