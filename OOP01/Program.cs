@@ -22,6 +22,23 @@ namespace OOP01
             //return $"{nev} vagyok {eletkor} éves";
         }
     }
+
+    class Teglalap
+    {
+        public int a;
+        public int b;
+
+        public int Kerulet()
+        {
+            return 2*a+2*b;
+        }
+
+        public int Terulet()
+        {
+            return a*b;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -37,6 +54,13 @@ namespace OOP01
 
             Console.WriteLine(pisti.Bemutatkozas());
             Console.WriteLine(eva.Bemutatkozas());
+
+            Teglalap t = new Teglalap();
+
+            t.a = int.Parse(Console.ReadLine());
+            t.b = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Kerület: {0} Terület: {1}",t.Kerulet(),t.Terulet());
 
             Console.ReadKey();
         }
